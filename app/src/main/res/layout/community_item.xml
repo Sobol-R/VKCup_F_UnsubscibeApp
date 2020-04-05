@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <FrameLayout
+            android:id="@+id/image_content"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/card"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/icon"
+                android:src="@drawable/ic_launcher_background"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </android.support.v7.widget.CardView>
+
+        <com.sobol.f_unsubscribe_app.ui.communities.ItemSelectedView
+                android:translationZ="100dp"
+                android:id="@+id/item_selected"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        </com.sobol.f_unsubscribe_app.ui.communities.ItemSelectedView>
+
+    </FrameLayout>
+
+    <TextView
+            android:id="@+id/title"
+            android:textSize="14sp"
+            android:textColor="@color/colorTextDark"
+            android:text="Совхоз имени Ленина"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>
