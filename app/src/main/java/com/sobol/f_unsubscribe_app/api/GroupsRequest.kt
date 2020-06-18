@@ -1,7 +1,6 @@
-package com.sobol.f_unsubscribe_app
+package com.sobol.f_unsubscribe_app.api
 
 import com.sobol.f_unsubscribe_app.model.Group
-import com.sobol.f_unsubscribe_app.model.VKUser
 import com.vk.api.sdk.requests.VKRequest
 import org.json.JSONObject
 

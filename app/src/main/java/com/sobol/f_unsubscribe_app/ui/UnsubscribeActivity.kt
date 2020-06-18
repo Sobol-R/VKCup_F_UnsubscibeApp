@@ -15,7 +15,7 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import com.sobol.f_unsubscribe_app.AndroidUtils
 import com.sobol.f_unsubscribe_app.Database
-import com.sobol.f_unsubscribe_app.GroupsRequest
+import com.sobol.f_unsubscribe_app.api.GroupsRequest
 import com.sobol.f_unsubscribe_app.R
 import com.sobol.f_unsubscribe_app.model.Group
 import com.sobol.f_unsubscribe_app.ui.communities.CommunityAdapter
@@ -86,7 +86,7 @@ class UnsubscribeActivity : AppCompatActivity() {
             VK.execute(GroupsRequest(), object : VKApiCallback<List<Group>> {
                 override fun success(result: List<Group>) {
                     if (!isFinishing && !result.isEmpty()) {
-                        waitingView!!.disapper()
+                        waitingView!!.disappear()
                         updateRecyclerView(result)
                     }
                 }

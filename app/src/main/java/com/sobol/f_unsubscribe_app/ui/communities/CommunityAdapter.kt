@@ -2,7 +2,6 @@ package com.sobol.f_unsubscribe_app.ui.communities
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import com.sobol.f_unsubscribe_app.model.Community
 import com.sobol.f_unsubscribe_app.model.Group
 import com.sobol.f_unsubscribe_app.ui.UnsubscribeActivity
 

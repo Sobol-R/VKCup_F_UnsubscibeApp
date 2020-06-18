@@ -5,7 +5,7 @@ import android.support.design.widget.AppBarLayout
 
 abstract class AppBarStateChangeListener : AppBarLayout.OnOffsetChangedListener {
 
-    private var mCurrentState =
+    private var currentState =
         State.IDLE
 
     enum class State {
@@ -17,30 +17,30 @@ abstract class AppBarStateChangeListener : AppBarLayout.OnOffsetChangedListener 
     override fun onOffsetChanged(appBarLayout: AppBarLayout, i: Int) {
         when {
             i == 0 -> {
-                if (mCurrentState != State.EXPANDED) {
+                if (currentState != State.EXPANDED) {
                     onStateChanged(appBarLayout,
                         State.EXPANDED
                     )
                 }
-                mCurrentState =
+                currentState =
                     State.EXPANDED
             }
             Math.abs(i) >= appBarLayout.totalScrollRange -> {
-                if (mCurrentState != State.COLLAPSED) {
+                if (currentState != State.COLLAPSED) {
                     onStateChanged(appBarLayout,
                         State.COLLAPSED
                     )
                 }
-                mCurrentState =
+                currentState =
                     State.COLLAPSED
             }
             else -> {
-                if (mCurrentState != State.IDLE) {
+                if (currentState != State.IDLE) {
                     onStateChanged(appBarLayout,
                         State.IDLE
                     )
                 }
-                mCurrentState =
+                currentState =
                     State.IDLE
             }
         }

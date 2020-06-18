@@ -19,16 +19,20 @@ class OpenButtonView(
 
     fun init(screenName: String) {
         LayoutInflater.from(context).inflate(R.layout.open_button_view, this, true)
+
+        activity = context as UnsubscribeActivity
+
         val params = CoordinatorLayout.LayoutParams(
             CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.WRAP_CONTENT
         )
         params.gravity = Gravity.BOTTOM
         layoutParams = params
-        activity = context as UnsubscribeActivity
-        alpha = 0f
+
         setOnClickListener {
             activity.openWebPage(screenName)
         }
+
+        alpha = 0f
     }
 
     fun appear() {

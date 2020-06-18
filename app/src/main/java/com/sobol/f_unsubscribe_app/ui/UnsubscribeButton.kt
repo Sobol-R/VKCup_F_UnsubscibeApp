@@ -2,17 +2,11 @@ package com.sobol.f_unsubscribe_app.ui
 
 import android.animation.Animator
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
-import android.support.design.widget.CoordinatorLayout
-import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.FrameLayout
-import com.sobol.f_unsubscribe_app.AndroidUtils
 import com.sobol.f_unsubscribe_app.Database
-import com.sobol.f_unsubscribe_app.LeaveGroupRequest
+import com.sobol.f_unsubscribe_app.api.LeaveGroupRequest
 import com.sobol.f_unsubscribe_app.R
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.VKApiCallback
@@ -33,8 +27,8 @@ class UnsubscribeButton(
 
     init {
         LayoutInflater.from(context).inflate(R.layout.unsub_button, this, true)
+
         activity = context as UnsubscribeActivity
-        alpha = 0f
 
         viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener{
             override fun onGlobalLayout() {
@@ -55,37 +49,12 @@ class UnsubscribeButton(
         setOnClickListener {
             leaveGroups()
         }
+
+        alpha = 0f
     }
 
     private fun leaveGroups() {
-        activity.showWaitingView()
-        val unsubGroups = Database.instance.getUnsubCommunitites()
-        for (i in 0 until unsubGroups.size) {
-            VK.execute(LeaveGroupRequest(unsubGroups[i].id), object : VKApiCallback<Int> {
-                override fun success(result: Int) {
-                    if (i == unsubGroups.size-1) {
-                        unsubGroups.clear()
-                        activity.updateRecyclerViewMargin(0)
-                        activity.closeUnsubButton()
-                        activity.requestGroups()
-                    }
-                }
-
-                override fun fail(error: VKApiExecutionException) {
-                    if (i == unsubGroups.size-1) {
-                        unsubGroups.clear()
-                        activity.updateRecyclerViewMargin(0)
-                        activity.closeUnsubButton()
-                        activity.requestGroups()
-                    }
-                    println(error.detailMessage)
-                }
-            })
-        }
-    }
-
-    private fun processRequestRes() {
-
+        Database.instance.leaveGroup(activity)
     }
 
     fun setCount(value: Int) {

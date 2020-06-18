@@ -8,12 +8,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewTreeObserver
 
+private const val ANIMATION_DURATION = 150L
+
 class ToolbarBehavior(
     private val toolbar: CardView,
     private val appBarLayout: AppBarLayout
 ) : RecyclerView.OnScrollListener() {
-
-    private val ANIMATION_DURATION = 150L
 
     private var fromStart = true
     private var appBarExpanded = true
@@ -32,6 +32,7 @@ class ToolbarBehavior(
                 fromStart = false
             }
         })
+
         appBarLayout.addOnOffsetChangedListener(object : AppBarStateChangeListener() {
             override fun onStateChanged(appBarLayout: AppBarLayout, state: State) {
                 if (state.name == "EXPANDED" && !fromStart) {

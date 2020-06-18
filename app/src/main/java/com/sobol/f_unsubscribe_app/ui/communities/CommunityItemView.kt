@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.sobol.f_unsubscribe_app.AndroidUtils
 import com.sobol.f_unsubscribe_app.Database
 import com.sobol.f_unsubscribe_app.R
-import com.sobol.f_unsubscribe_app.model.Community
 import com.sobol.f_unsubscribe_app.model.Group
 import com.sobol.f_unsubscribe_app.ui.UnsubscribeActivity
 import com.sobol.f_unsubscribe_app.ui.UnsubscribeButton
@@ -61,7 +60,6 @@ class CommunityItemView(
         }
 
         title.text = group.name
-
     }
 
     private fun setCheckedStyle() {

@@ -1,4 +1,4 @@
-package com.sobol.f_unsubscribe_app
+package com.sobol.f_unsubscribe_app.api
 
 import com.vk.api.sdk.requests.VKRequest
 import org.json.JSONObject

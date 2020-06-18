@@ -12,11 +12,12 @@ import com.sobol.f_unsubscribe_app.model.Group
 import com.sobol.f_unsubscribe_app.ui.UnsubscribeActivity
 import kotlinx.android.synthetic.main.popup_container.view.*
 
+private const val APPEAR_DURATION = 150L
+
 class PopUpContainerView(
     context: Context
 ) : FrameLayout(context) {
 
-    val APPEAR_DURATION = 150L
     private lateinit var unsubscribeActivity: UnsubscribeActivity
     private lateinit var behavior: BottomSheetBehavior<CommunityInfoView>
     private val communityView = CommunityInfoView(context)
@@ -30,14 +31,18 @@ class PopUpContainerView(
 
     fun init(group: Group) {
         LayoutInflater.from(context).inflate(R.layout.popup_container, this, true)
+
         unsubscribeActivity = context as UnsubscribeActivity
+
         communityView.init(this)
         communityView.setData(group)
         openButton.init(group.screenName)
         initBottomSheetBehavior()
+
         content.setOnClickListener {
             unsubscribeActivity.onBackPressed()
         }
+
         content.addView(communityView)
         content.addView(openButton)
     }

@@ -40,7 +40,7 @@ class WaitingView(
             .duration = ANIMATION_DURATION
     }
 
-    fun disapper() {
+    fun disappear() {
         animate()
             .setListener(object : Animator.AnimatorListener{
                 override fun onAnimationRepeat(animation: Animator?) {
